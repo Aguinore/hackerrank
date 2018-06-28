@@ -2,9 +2,7 @@ package org.aguinore;
 
 import java.util.*;
 
-import static org.aguinore.Utils.arrayToList;
-import static org.aguinore.Utils.readArrayFromScanner;
-import static org.aguinore.Utils.sumArray;
+import static org.aguinore.Utils.*;
 
 public class Solution {
     public static void main(String[] args) {
@@ -12,7 +10,7 @@ public class Solution {
 
         System.out.printf("%.1f%n", calculateMean(arr));
         System.out.printf("%.1f%n", calculateMedian(arr));
-        calculateMode(arr);
+        System.out.println(calculateMode(arr));
     }
 
     private static double calculateMean(int[] arr) {
@@ -23,7 +21,6 @@ public class Solution {
     private static double calculateMedian(int[] arr) {
         List<Integer> list = arrayToList(arr);
         list.sort(null);
-        System.out.println(list);
         double median;
         if (list.size() % 2 == 1) {
             median = list.get(list.size() / 2);
@@ -35,7 +32,7 @@ public class Solution {
         return median;
     }
 
-    private static void calculateMode(int[] arr) {
+    private static int calculateMode(int[] arr) {
         Map<Integer, Integer> counts = new HashMap<>();
         for(int i: arr) {
             if (counts.containsKey(i)) {
@@ -44,6 +41,6 @@ public class Solution {
                 counts.put(i, 1);
             }
         }
-
+        return minKeyWithMaxCount(counts);
     }
 }
