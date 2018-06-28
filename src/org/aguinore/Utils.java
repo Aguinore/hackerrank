@@ -6,10 +6,18 @@ public class Utils {
 
     public static int[] readArrayFromScanner() {
         Scanner scanner = new Scanner(System.in);
-        int num = scanner.nextInt();
-        int[] arr = new int[num];
+        return readArrayFromScanner(scanner);
+    }
 
-        for (int i = 0; i < num; i++) {
+    public static int[] readArrayFromScanner(Scanner scanner) {
+        int num = scanner.nextInt();
+        return readArrayFromScanner(scanner, num);
+    }
+
+    public static int[] readArrayFromScanner(Scanner scanner, int arraySize) {
+        int[] arr = new int[arraySize];
+
+        for (int i = 0; i < arraySize; i++) {
             arr[i] = scanner.nextInt();
         }
         return arr;
