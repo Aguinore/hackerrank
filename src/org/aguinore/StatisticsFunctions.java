@@ -1,12 +1,11 @@
 package org.aguinore;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static org.aguinore.Utils.arrayToList;
-import static org.aguinore.Utils.minKeyWithMaxCount;
-import static org.aguinore.Utils.sumArray;
+import static org.aguinore.Utils.*;
 
 public class StatisticsFunctions {
 
@@ -49,5 +48,32 @@ public class StatisticsFunctions {
             weightedArr += arr[i] * weights[i];
         }
         return weightedArr / weightsSum;
+    }
+
+    public static double[] calculateQuartiles(int[] arr){
+        double[] quartiles = new double[3];
+        Arrays.sort(arr);
+        quartiles[1] = calculateMedian(arr);
+        int halfLength;
+        int[] leftArr;
+        int[] rightArr;
+        if (arr.length % 2 == 1) {
+            halfLength = (arr.length - 1) / 2;
+            leftArr = new int[halfLength];
+            rightArr = new int[halfLength];
+            System.arraycopy(arr, 0, leftArr, 0, halfLength);
+            System.arraycopy(arr, halfLength + 1, rightArr, 0, halfLength);
+        } else {
+            halfLength = arr.length / 2;
+            leftArr = new int[halfLength];
+            rightArr = new int[halfLength];
+            System.arraycopy(arr, 0, leftArr, 0, halfLength);
+            System.arraycopy(arr, halfLength, rightArr, 0, halfLength);
+        }
+        System.out.println("rightArr = " + Arrays.toString(rightArr));
+        System.out.println("leftArr = " + Arrays.toString(leftArr));
+        quartiles[0] = calculateMedian(leftArr);
+        quartiles[2] = calculateMedian(rightArr);
+        return quartiles;
     }
 }
