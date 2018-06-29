@@ -2,7 +2,6 @@ package org.aguinore;
 
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import static org.aguinore.Utils.*;
@@ -15,14 +14,19 @@ public class StatisticsFunctions {
     }
 
     public static double calculateMedian(int[] arr) {
-        List<Integer> list = arrayToList(arr);
-        list.sort(null);
+        return calculateMedian(arr, false);
+    }
+
+    public static double calculateMedian(int[] arr, boolean sorted) {
+        if (!sorted) {
+            Arrays.sort(arr);
+        }
         double median;
-        if (list.size() % 2 == 1) {
-            median = list.get(list.size() / 2);
+        if (arr.length % 2 == 1) {
+            median = arr[arr.length / 2];
         } else {
-            int left = list.get(list.size() / 2 - 1);
-            int right = list.get(list.size() / 2);
+            int left = arr[arr.length / 2 - 1];
+            int right = arr[arr.length / 2];
             median = (left + right) / 2.0;
         }
         return median;
@@ -53,7 +57,7 @@ public class StatisticsFunctions {
     public static double[] calculateQuartiles(int[] arr){
         double[] quartiles = new double[3];
         Arrays.sort(arr);
-        quartiles[1] = calculateMedian(arr);
+        quartiles[1] = calculateMedian(arr,true);
         int halfLength;
         int[] leftArr;
         int[] rightArr;
@@ -70,10 +74,22 @@ public class StatisticsFunctions {
             System.arraycopy(arr, 0, leftArr, 0, halfLength);
             System.arraycopy(arr, halfLength, rightArr, 0, halfLength);
         }
-        System.out.println("rightArr = " + Arrays.toString(rightArr));
-        System.out.println("leftArr = " + Arrays.toString(leftArr));
-        quartiles[0] = calculateMedian(leftArr);
-        quartiles[2] = calculateMedian(rightArr);
+        quartiles[0] = calculateMedian(leftArr, true);
+        quartiles[2] = calculateMedian(rightArr, true);
         return quartiles;
+    }
+
+    public static double calculateInterquartileRange(int[] arr) {
+        double[] quartiles = calculateQuartiles(arr);
+        return quartiles[2] - quartiles[0];
+    }
+
+    public static double calculateStandardDeviation(int[] arr) {
+        double mean = calculateMean(arr);
+        int sumSquaredDistance = 0;
+        for (int i = 0; i < arr.length; i++) {
+            sumSquaredDistance += (arr[i] - mean) * (arr[i] - mean);
+        }
+        return Math.sqrt(sumSquaredDistance / arr.length);
     }
 }

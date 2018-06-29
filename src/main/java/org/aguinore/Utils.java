@@ -23,10 +23,10 @@ public class Utils {
         return arr;
     }
 
-    public static double sumArray(int[] arr) {
-        double sum = 0.0;
-        for (int i = 0; i < arr.length; i++) {
-            sum += arr[i];
+    public static int sumArray(int[] arr) {
+        int sum = 0;
+        for (int i : arr) {
+            sum += i;
         }
         return sum;
     }
@@ -37,6 +37,23 @@ public class Utils {
             list.add(i);
         }
         return list;
+    }
+
+    public static int[] getArrayWithCounts(int[] arr, int[] counts) {
+        int weightSum = sumArray(counts);
+
+        int[] array = new int[weightSum];
+
+        int i = 0;
+        int counter = 0;
+        while (i < counts.length) {
+            for (int j = 0; j < counts[i]; j++) {
+                array[counter] = arr[i];
+                counter++;
+            }
+            i++;
+        }
+        return array;
     }
 
     public static <K extends Comparable<K>, V extends Comparable<V>> K minKeyWithMaxCount(Map<K, V> map) {
