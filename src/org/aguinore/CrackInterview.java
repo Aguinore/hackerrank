@@ -1,21 +1,14 @@
 package org.aguinore;
 
-import java.util.*;
-
 public class CrackInterview {
-    public static int[] rotLeft(int[] a, int d) {
+    public static int[] rotLeftBruteforce(int[] a, int d) {
         int actualShift = d % a.length;
-        int i = a.length - 1 - actualShift;
-        int tempValue = a[i];
-        System.out.println("before i=" + i + ", tempValue=" + tempValue);
-        boolean first = true;
-        while(first || i != a.length - 1 - actualShift) {
-            a[i] = a[(i + actualShift) % a.length];
-            i = (i + a.length - actualShift) % a.length;
-            a[Math.abs(i - (a.length - actualShift)) % a.length] = tempValue;
-            tempValue = a[i];
-            System.out.println(Arrays.toString(a) + " and i = " + i);
-            first = false;
+        for (int i = 0; i < actualShift; i++) {
+            int tempValue = a[0];
+            for (int j = 0; j < a.length - 1; j++) {
+                a[j] = a[j + 1];
+            }
+            a[a.length - 1] = tempValue;
         }
         return a;
     }
