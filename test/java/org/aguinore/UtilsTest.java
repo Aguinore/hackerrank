@@ -74,4 +74,16 @@ class UtilsTest {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
     }
+
+    @Test
+    void findCharInArray() {
+        char[] array = {'a', 'b', '3'};
+        assertEquals(1, Utils.findCharInArray(array, 'b'));
+    }
+
+    @Test
+    void findCharInArray_notFound() {
+        char[] array = {'1', '2', '3'};
+        assertEquals(-1, Utils.findCharInArray(array, '4'));
+    }
 }
