@@ -48,4 +48,25 @@ class CrackInterviewTest {
         String[] note = {"give", "one", "grand", "today"};
         assertTrue(CrackInterview.checkMagazine(magazine, note));
     }
+
+    @Test
+    void hasListCyclesEmpty() {
+        CrackInterview.Node node = new CrackInterview.Node();
+        node.next = null;
+        assertFalse(CrackInterview.hasListCycles(node));
+    }
+
+    @Test
+    void hasListCyclesFalse() {
+        CrackInterview.Node node = new CrackInterview.Node();
+        node.next = new CrackInterview.Node();
+        assertFalse(CrackInterview.hasListCycles(node));
+    }
+
+    @Test
+    void hasListCyclesTrue() {
+        CrackInterview.Node node = new CrackInterview.Node();
+        node.next = node;
+        assertTrue(CrackInterview.hasListCycles(node));
+    }
 }

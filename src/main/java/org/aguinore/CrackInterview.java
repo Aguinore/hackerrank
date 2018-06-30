@@ -73,4 +73,29 @@ public class CrackInterview {
         }
         return true;
     }
+
+    static class Node {
+        Node next;
+    }
+
+    /**]
+     * O(1) space, O(n) time
+     * @param node start
+     * @return if linkedList contains circle
+     */
+    public static boolean hasListCycles(Node node) {
+        if (node == null || node.next == null) {
+            return false;
+        }
+        Node slow = node;
+        Node fast = node.next;
+        while (slow != fast) {
+            if (fast == null || fast.next == null) {
+                return false;
+            }
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return true;
+    }
 }
