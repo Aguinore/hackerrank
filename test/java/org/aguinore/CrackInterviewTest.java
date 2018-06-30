@@ -13,4 +13,25 @@ class CrackInterviewTest {
 
         assertArrayEquals(result, CrackInterview.rotLeftBruteforce(array, 3));
     }
+
+    @Test
+    void makeAnagram() {
+        String a = "abcde";
+        String b = "cdefg";
+        assertEquals(4, CrackInterview.makeAnagram(a, b));
+    }
+
+    @Test
+    void makeAnagramAnother() {
+        String a = "cde";
+        String b = "abc";
+        assertEquals(4, CrackInterview.makeAnagram(a, b));
+    }
+
+    @Test
+    void makeAnagramRepetitions() {
+        String a = "fcrxzwscanmligyxyvym";
+        String b = "jxwtrhvujlmrpdoqbisbwhmgpmeoke";
+        assertEquals(30, CrackInterview.makeAnagram(a, b));
+    }
 }
