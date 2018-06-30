@@ -2,6 +2,11 @@ package org.aguinore;
 
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class CrackInterviewTest {
@@ -68,5 +73,47 @@ class CrackInterviewTest {
         CrackInterview.Node node = new CrackInterview.Node();
         node.next = node;
         assertTrue(CrackInterview.hasListCycles(node));
+    }
+
+    @Test
+    void ifBracketsBalanced() {
+        String brackets = "{[()]}";
+        assertTrue(CrackInterview.ifBracketsBalanced(brackets));
+    }
+
+    @Test
+    void ifBracketsBalancedEmpty() {
+        String brackets = "";
+        assertTrue(CrackInterview.ifBracketsBalanced(brackets));
+    }
+    @Test
+    void ifBracketsBalancedLong() throws FileNotFoundException {
+        Scanner scanner = new Scanner(new FileInputStream(new File("test/resource/brackets")));
+        Scanner anotherScanner = new Scanner(new FileInputStream(new File("test/resource/brackets_res")));
+        int row = 0;
+        while (scanner.hasNext()) {
+            System.out.println("row = " + ++row);
+            String brackets = scanner.nextLine();
+            System.out.println(brackets);
+            String res = anotherScanner.nextLine();
+            System.out.println(res);
+            if (res.equals("YES")) {
+                assertTrue(CrackInterview.ifBracketsBalanced(brackets));
+            } else {
+                assertFalse(CrackInterview.ifBracketsBalanced(brackets));
+            }
+        }
+    }
+
+    @Test
+    void ifBracketsBalancedFalse() {
+        String brackets = "{[(])}";
+        assertFalse(CrackInterview.ifBracketsBalanced(brackets));
+    }
+
+    @Test
+    void ifBracketsBalancedMalformed() {
+        String brackets = "{[(0]}";
+        assertFalse(CrackInterview.ifBracketsBalanced(brackets));
     }
 }

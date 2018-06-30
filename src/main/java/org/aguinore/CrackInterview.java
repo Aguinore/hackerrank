@@ -2,6 +2,7 @@ package org.aguinore;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 public class CrackInterview {
@@ -97,5 +98,43 @@ public class CrackInterview {
             fast = fast.next.next;
         }
         return true;
+    }
+
+    public static boolean ifBracketsBalanced(String brackets) {
+        if (brackets.isEmpty()) {
+            return true;
+        }
+        String trueBrackets = "(){}[]";
+        List<Character> stack = new LinkedList<>();
+        for (int i = 0; i < brackets.length(); i++) {
+            char ch = brackets.charAt(i);
+            if (trueBrackets.indexOf(ch) == -1) {
+                return false;
+            }
+            if (ch == '(' || ch == '{' || ch == '[') {
+                stack.add(ch);
+            } else {
+                if (stack.isEmpty()) {
+                    return false;
+                }
+                char lastOnStack = stack.remove(stack.size() - 1);
+                if (ch == ')') {
+                    if (lastOnStack != '(') {
+                        return false;
+                    }
+                }
+                if (ch == '}') {
+                    if (lastOnStack != '{') {
+                        return false;
+                    }
+                }
+                if (ch == ']') {
+                    if (lastOnStack != '[') {
+                        return false;
+                    }
+                }
+            }
+        }
+        return stack.isEmpty();
     }
 }
