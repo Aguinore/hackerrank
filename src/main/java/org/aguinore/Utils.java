@@ -23,8 +23,8 @@ public class Utils {
         return arr;
     }
 
-    public static int sumArray(int[] arr) {
-        int sum = 0;
+    public static long sumArray(int[] arr) {
+        long sum = 0;
         for (int i : arr) {
             sum += i;
         }
@@ -40,7 +40,7 @@ public class Utils {
     }
 
     public static int[] getArrayWithCounts(int[] arr, int[] counts) {
-        int weightSum = sumArray(counts);
+        int weightSum = (int) sumArray(counts);
 
         int[] array = new int[weightSum];
 

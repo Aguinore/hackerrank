@@ -67,4 +67,16 @@ class StatisticsFunctionsTest {
         int[] arr = {4, 17, 7, 14, 18, 12, 3, 16, 10, 4, 4, 12};
         assertEquals(11.0, StatisticsFunctions.calculateInterquartileRange(arr));
     }
+
+    @Test
+    void calculateStandardDeviation() {
+        int[] array = {10, 40, 30, 50, 20};
+        assertEquals(14.142135623730951, StatisticsFunctions.calculateStandardDeviation(array));
+    }
+
+    @Test
+    void calculateStandardDeviationLong() {
+        int[] array = {6392, 51608, 71247, 14271, 48327, 50618, 67435, 47029, 61857, 22987, 64858, 99745, 75504, 85464, 60482, 30320, 11342, 48808, 66882, 40522};
+        assertEquals(24245.456687800295, StatisticsFunctions.calculateStandardDeviation(array));
+    }
 }

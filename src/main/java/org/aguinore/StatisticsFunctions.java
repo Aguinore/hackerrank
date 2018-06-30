@@ -86,9 +86,10 @@ public class StatisticsFunctions {
 
     public static double calculateStandardDeviation(int[] arr) {
         double mean = calculateMean(arr);
-        int sumSquaredDistance = 0;
-        for (int i = 0; i < arr.length; i++) {
-            sumSquaredDistance += (arr[i] - mean) * (arr[i] - mean);
+        long sumSquaredDistance = 0;
+        for (int anArr : arr) {
+            double squaredDistance = (anArr - mean) * (anArr - mean);
+            sumSquaredDistance += squaredDistance;
         }
         return Math.sqrt(sumSquaredDistance / arr.length);
     }

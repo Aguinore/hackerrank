@@ -38,7 +38,7 @@ class UtilsTest {
     @Test
     void sumArray() {
         int[] array = {1, 2, 3};
-        assertEquals(6, Utils.sumArray(array));
+        assertEquals(6L, Utils.sumArray(array));
     }
 
     @Test
