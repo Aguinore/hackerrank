@@ -34,4 +34,18 @@ class CrackInterviewTest {
         String b = "jxwtrhvujlmrpdoqbisbwhmgpmeoke";
         assertEquals(30, CrackInterview.makeAnagram(a, b));
     }
+
+    @Test
+    void checkMagazineFalse() {
+        String[] magazine = {"two", "times", "three", "is", "not", "four"};
+        String[] note = {"two", "times", "two", "is", "four"};
+        assertFalse(CrackInterview.checkMagazine(magazine, note));
+    }
+
+    @Test
+    void checkMagazine() {
+        String[] magazine = {"give", "me", "one", "grand", "today", "night"};
+        String[] note = {"give", "one", "grand", "today"};
+        assertTrue(CrackInterview.checkMagazine(magazine, note));
+    }
 }

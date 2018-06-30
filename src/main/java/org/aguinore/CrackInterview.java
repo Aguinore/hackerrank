@@ -1,6 +1,8 @@
 package org.aguinore;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class CrackInterview {
     public static int[] rotLeftBruteforce(int[] a, int d) {
@@ -51,5 +53,24 @@ public class CrackInterview {
             }
         }
         return result;
+    }
+
+    /**
+     *
+     * @param magazine - dictionary
+     * @param note - text to be formed using the #magazine
+     * @return if the note can be formed using the magazine.
+     */
+    public static boolean checkMagazine(String[] magazine, String[] note) {
+        List<String> magazineList = new ArrayList<>(Arrays.asList(magazine));
+        for (String word: note) {
+            int positionInMag = magazineList.indexOf(word);
+            if (positionInMag >= 0) {
+                magazineList.remove(positionInMag);
+            } else {
+                return false;
+            }
+        }
+        return true;
     }
 }
