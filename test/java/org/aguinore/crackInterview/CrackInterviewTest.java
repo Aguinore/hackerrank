@@ -1,9 +1,7 @@
-package org.aguinore;
+package org.aguinore.crackInterview;
 
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
@@ -86,12 +84,13 @@ class CrackInterviewTest {
         String brackets = "";
         assertTrue(CrackInterview.ifBracketsBalanced(brackets));
     }
+    
     @Test
     void ifBracketsBalancedLong() throws FileNotFoundException {
         Scanner scanner = new Scanner(Thread.currentThread().getContextClassLoader()
-                .getResourceAsStream("brackets"));
+                .getResourceAsStream("crackInterview/brackets"));
         Scanner anotherScanner = new Scanner(Thread.currentThread().getContextClassLoader()
-                .getResourceAsStream("brackets_res"));
+                .getResourceAsStream("crackInterview/brackets_res"));
         while (scanner.hasNext()) {
             String brackets = scanner.nextLine();
             String res = anotherScanner.nextLine();

@@ -1,4 +1,6 @@
-package org.aguinore;
+package org.aguinore.crackInterview;
+
+import org.aguinore.Utils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -105,19 +107,19 @@ public class CrackInterview {
             return true;
         }
         String trueBrackets = "(){}[]";
-        List<Character> stack = new LinkedList<>();
+        MyStack<Character> stack = new MyStack<>();
         for (int i = 0; i < brackets.length(); i++) {
             char ch = brackets.charAt(i);
             if (trueBrackets.indexOf(ch) == -1) {
                 return false;
             }
             if (ch == '(' || ch == '{' || ch == '[') {
-                stack.add(ch);
+                stack.put(ch);
             } else {
                 if (stack.isEmpty()) {
                     return false;
                 }
-                char lastOnStack = stack.remove(stack.size() - 1);
+                char lastOnStack = stack.pop();
                 if (ch == ')') {
                     if (lastOnStack != '(') {
                         return false;
