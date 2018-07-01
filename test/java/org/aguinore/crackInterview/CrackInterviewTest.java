@@ -84,7 +84,7 @@ class CrackInterviewTest {
         String brackets = "";
         assertTrue(CrackInterview.ifBracketsBalanced(brackets));
     }
-    
+
     @Test
     void ifBracketsBalancedLong() throws FileNotFoundException {
         Scanner scanner = new Scanner(Thread.currentThread().getContextClassLoader()
