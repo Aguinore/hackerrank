@@ -88,15 +88,13 @@ class CrackInterviewTest {
     }
     @Test
     void ifBracketsBalancedLong() throws FileNotFoundException {
-        Scanner scanner = new Scanner(new FileInputStream(new File("test/resource/brackets")));
-        Scanner anotherScanner = new Scanner(new FileInputStream(new File("test/resource/brackets_res")));
-        int row = 0;
+        Scanner scanner = new Scanner(Thread.currentThread().getContextClassLoader()
+                .getResourceAsStream("brackets"));
+        Scanner anotherScanner = new Scanner(Thread.currentThread().getContextClassLoader()
+                .getResourceAsStream("brackets_res"));
         while (scanner.hasNext()) {
-            System.out.println("row = " + ++row);
             String brackets = scanner.nextLine();
-            System.out.println(brackets);
             String res = anotherScanner.nextLine();
-            System.out.println(res);
             if (res.equals("YES")) {
                 assertTrue(CrackInterview.ifBracketsBalanced(brackets));
             } else {
