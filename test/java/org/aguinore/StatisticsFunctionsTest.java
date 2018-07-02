@@ -91,4 +91,15 @@ class StatisticsFunctionsTest {
         assertEquals(24, StatisticsFunctions.factorial(4));
         assertEquals(2, StatisticsFunctions.factorial(2));
     }
+
+    @Test
+    void binomial() {
+        assertEquals(0.24609375, StatisticsFunctions.binomial(10, 5, 0.5));
+    }
+
+    @Test
+    void geometricDistribution() {
+        assertTrue(0.00567 - StatisticsFunctions.geometricDistribution(5, 0.7) < 0.0000001);
+        assertTrue(0.065843621 - StatisticsFunctions.geometricDistribution(5, 1.0/3) < 0.0000001);
+    }
 }

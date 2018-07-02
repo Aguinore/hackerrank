@@ -118,14 +118,22 @@ public class StatisticsFunctions {
         return num * factorial(num - 1);
     }
 
-    public static Double binomial(int n, int x, double p) {
+    public static double binomial(int trials, int successes, double p) {
         if (p < 0 || p > 1) {
             throw new IllegalArgumentException("Probability must be in [0; 1]");
         }
-        if (n < 0 || x < 0 || x > n) {
+        if (trials < 0 || successes < 0 || successes > trials) {
             throw new IllegalArgumentException("Number of trials must be positive," +
                     " number of successes must be positive and we can't take more successes than trials");
         }
-        return combinations(n, x) * Math.pow(p, x) * Math.pow(1 - p, n - x);
+        return combinations(trials, successes) * Math.pow(p, successes) * Math.pow(1 - p, trials - successes);
+    }
+
+    /**
+     * counts the probability of the first success seeing at nth trial
+     * if the probability of success = p
+     */
+    public static double geometricDistribution(int n, double p) {
+        return Math.pow((1 - p), (n - 1)) * p;
     }
 }
