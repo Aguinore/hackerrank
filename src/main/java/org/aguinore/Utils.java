@@ -121,4 +121,14 @@ public class Utils {
         }
         return true;
     }
+
+    public static long fibonacci(int num) {
+        if (num < 0) {
+            throw new IllegalArgumentException("Cannot return negative Fibonacci number");
+        }
+        if (num < 2) {
+            return num;
+        }
+        return fibonacci(num - 1) + fibonacci(num - 2);
+    }
 }

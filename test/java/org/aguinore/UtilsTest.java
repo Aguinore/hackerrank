@@ -102,4 +102,10 @@ class UtilsTest {
         assertTrue(Utils.isPrimal(907));
         assertFalse(Utils.isPrimal(14582734));
     }
+
+    @Test
+    void fibonacci() {
+        assertEquals(2, Utils.fibonacci(3));
+        assertEquals(8, Utils.fibonacci(6));
+    }
 }
