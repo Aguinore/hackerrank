@@ -86,4 +86,11 @@ class UtilsTest {
         char[] array = {'1', '2', '3'};
         assertEquals(-1, Utils.findCharInArray(array, '4'));
     }
+
+    @Test
+    void bubbleSort() {
+        int[] arr = {4, 17, 7, 14, 18, 12, 3, 16, 10, 4, 4, 12};
+        int[] expected = {3, 4, 4, 4, 7, 10, 12, 12, 14, 16, 17, 18};
+        assertArrayEquals(expected, Utils.bubbleSort(arr));
+    }
 }
