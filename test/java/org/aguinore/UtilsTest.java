@@ -93,4 +93,13 @@ class UtilsTest {
         int[] expected = {3, 4, 4, 4, 7, 10, 12, 12, 14, 16, 17, 18};
         assertArrayEquals(expected, Utils.bubbleSort(arr));
     }
+
+    @Test
+    void primality() {
+        for (int i = 1; i <= 29; i++) {
+            assertFalse(Utils.isPrimal(i * i));
+        }
+        assertTrue(Utils.isPrimal(907));
+        assertFalse(Utils.isPrimal(14582734));
+    }
 }

@@ -103,4 +103,22 @@ public class Utils {
         }
         return arr;
     }
+
+    public static boolean isPrimal(int n) {
+        if (n <= 0) {
+            throw new IllegalArgumentException("Cannot check if negative n is primal");
+        }
+        if (n == 1) {
+            return false;
+        }
+        if (n < 4) {
+            return true;
+        }
+        for (int i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
