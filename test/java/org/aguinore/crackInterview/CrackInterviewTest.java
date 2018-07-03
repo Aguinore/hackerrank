@@ -113,4 +113,24 @@ class CrackInterviewTest {
         String brackets = "{[(0]}";
         assertFalse(CrackInterview.ifBracketsBalanced(brackets));
     }
+
+    @Test
+    void findSubarrayWithSumEasy() {
+        int[] arr = {3, 5, -1, 2, 4, -3, 7};
+        int[] expected = {1, 3};
+        assertArrayEquals(expected, CrackInterview.findSubarrayWithSum(arr, 6));
+    }
+
+    @Test
+    void findSubarrayWithSum() {
+        int[] arr = {3, 5, -1, 2, 4, -3, 7};
+        int[] expected = {2, 3};
+        assertArrayEquals(expected, CrackInterview.findSubarrayWithSum(arr, 1));
+    }
+    @Test
+    void findSubarrayWithSum1() {
+        int[] arr = {10,70,-30,10};
+        int[] expected = {1, 2};
+        assertArrayEquals(expected, CrackInterview.findSubarrayWithSum(arr, 40));
+    }
 }

@@ -139,4 +139,28 @@ public class CrackInterview {
         }
         return stack.isEmpty();
     }
+
+    /**
+     * @param arr array
+     * @param sum - sum of desired subarray
+     * @return two ints, left and right bounds of subarray which sum is equal to sum
+     */
+    public static int[] findSubarrayWithSum(int[] arr, int sum) {
+        int[] res = {-1, -1};
+        int currentSum = 0;
+        int start = 0;
+        for (int i = 0; i < arr.length; i++) {
+            currentSum += arr[i];
+            while (currentSum > sum && start < i) {
+                currentSum -= arr[start];
+                start++;
+            }
+            if (currentSum == sum) {
+                res[0] = start;
+                res[1] = i;
+                return res;
+            }
+        }
+        return res;
+    }
 }
