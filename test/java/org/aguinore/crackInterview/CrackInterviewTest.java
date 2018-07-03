@@ -127,9 +127,17 @@ class CrackInterviewTest {
         int[] expected = {2, 3};
         assertArrayEquals(expected, CrackInterview.findSubarrayWithSum(arr, 1));
     }
+
     @Test
     void findSubarrayWithSum1() {
-        int[] arr = {10,70,-30,10};
+        int[] arr = {10, 70, -30, 10};
+        int[] expected = {1, 2};
+        assertArrayEquals(expected, CrackInterview.findSubarrayWithSum(arr, 40));
+    }
+
+    @Test
+    void findSubarrayWithSum2() {
+        int[] arr = {-100, 10, 30, -100};
         int[] expected = {1, 2};
         assertArrayEquals(expected, CrackInterview.findSubarrayWithSum(arr, 40));
     }
