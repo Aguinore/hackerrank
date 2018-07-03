@@ -16,7 +16,8 @@ class BinaryTreeTest {
         tree.add(2);
         tree.add(6);
         tree.add(5);
-        System.out.println(tree);
+
+        assertTrue(tree.checkBST(Integer.MIN_VALUE, Integer.MAX_VALUE));
     }
 
 }
