@@ -108,4 +108,13 @@ class UtilsTest {
         assertEquals(2, Utils.fibonacci(3));
         assertEquals(8, Utils.fibonacci(6));
     }
+
+    @Test
+    void getAllMultiples() {
+        int[] arr = {2, 4};
+        Integer[] expected = {4, 8, 12, 16};
+        Integer[] actual = new Integer[4];
+        Utils.getAllMultiples(arr, 16).toArray(actual);
+        assertArrayEquals(expected, actual);
+    }
 }

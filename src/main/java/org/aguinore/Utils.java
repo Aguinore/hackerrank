@@ -131,4 +131,21 @@ public class Utils {
         }
         return fibonacci(num - 1) + fibonacci(num - 2);
     }
+
+    public static List<Integer> getAllMultiples(int[] nums, int maxMultiple) {
+        List<Integer> multiples = new ArrayList<>();
+        for (int i = 1; i <= maxMultiple; i++) {
+            boolean isDiv = true;
+            for (int num : nums) {
+                if (i % num != 0) {
+                    isDiv = false;
+                    break;
+                }
+            }
+            if (isDiv) {
+                multiples.add(i);
+            }
+        }
+        return multiples;
+    }
 }
