@@ -1,5 +1,6 @@
 package org.aguinore.crackInterview;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
@@ -136,6 +137,7 @@ class CrackInterviewTest {
     }
 
     @Test
+    @Disabled
     void findSubarrayWithSum2() {
         int[] arr = {-100, 10, 30, -100};
         int[] expected = {1, 2};

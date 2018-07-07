@@ -28,6 +28,6 @@ class ProblemSolvingTest {
     void appendAndDelete3() {
         String s = "asdfqwertyuighjkzxcvasdfqwertyuighjkzxcvasdfqwertyuighjkzxcvasdfqwertyuighjkzxcvasdfqwertyuighjkzxcv";
         String t = "bsdfqwertyuighjkzxcvasdfqwertyuighjkzxcvasdfqwertyuighjkzxcvasdfqwertyuighjkzxcvasdfqwertyuighjkzxcv";
-        assertEquals("Yes", ProblemSolving.appendAndDelete(s, t, 100));
+        assertEquals("No", ProblemSolving.appendAndDelete(s, t, 100));
     }
 }

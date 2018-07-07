@@ -117,4 +117,11 @@ class UtilsTest {
         Utils.getAllMultiples(arr, 16).toArray(actual);
         assertArrayEquals(expected, actual);
     }
+
+    @Test
+    void binaryInt() {
+        assertEquals("1101", Utils.binaryInt(13));
+        assertEquals("11111", Utils.binaryInt(31));
+        assertEquals("1", Utils.binaryInt(1));
+    }
 }

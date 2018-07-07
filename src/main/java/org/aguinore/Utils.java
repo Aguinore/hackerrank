@@ -148,4 +148,13 @@ public class Utils {
         }
         return multiples;
     }
+
+    public static String binaryInt(int n) {
+        StringBuilder res = new StringBuilder();
+        while (n > 0) {
+            res.append(n % 2);
+            n /= 2;
+        }
+        return res.reverse().toString();
+    }
 }
