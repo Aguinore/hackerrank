@@ -107,6 +107,7 @@ class UtilsTest {
     void fibonacci() {
         assertEquals(2, Utils.fibonacci(3));
         assertEquals(8, Utils.fibonacci(6));
+        assertEquals(12586269025L, Utils.fibonacci(50));
     }
 
     @Test

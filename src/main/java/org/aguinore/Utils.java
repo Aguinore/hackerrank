@@ -129,7 +129,14 @@ public class Utils {
         if (num < 2) {
             return num;
         }
-        return fibonacci(num - 1) + fibonacci(num - 2);
+        long previous = 1;
+        long current = 1;
+        for (int i = 2; i < num; i++) {
+            long newCurrent = previous + current;
+            previous = current;
+            current = newCurrent;
+        }
+        return current;
     }
 
     public static List<Integer> getAllMultiples(int[] nums, int maxMultiple) {
