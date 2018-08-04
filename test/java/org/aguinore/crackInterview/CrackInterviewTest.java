@@ -87,7 +87,7 @@ class CrackInterviewTest {
     }
 
     @Test
-    void ifBracketsBalancedLong() throws FileNotFoundException {
+    void ifBracketsBalancedLong() {
         Scanner scanner = new Scanner(Thread.currentThread().getContextClassLoader()
                 .getResourceAsStream("crackInterview/brackets"));
         Scanner anotherScanner = new Scanner(Thread.currentThread().getContextClassLoader()
