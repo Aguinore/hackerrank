@@ -81,11 +81,11 @@ class RationalNumberTest {
     void ofAppropriate() {
         assertEquals(new RationalNumber(1, 2), RationalNumber.of(0.5));
         assertEquals(new RationalNumber(1, 5), RationalNumber.of(0.2));
-        assertEquals(new RationalNumber(1, 3), RationalNumber.of(0.333));
     }
 
     @Test
     void ofInappropriate() {
-        assertThrows(IllegalArgumentException.class, () -> RationalNumber.of(0.14));
+        assertEquals(new RationalNumber(7, 50), RationalNumber.of(0.14));
+        assertEquals(new RationalNumber(333, 1000), RationalNumber.of(0.333));
     }
 }

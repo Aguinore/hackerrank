@@ -55,12 +55,13 @@ public class RationalNumber {
     }
 
     public static RationalNumber of(double number) {
-        double denom = 1 / number;
-        double floored = Math.floor(denom);
-        if (denom - floored > 0.01) {
-            throw new IllegalArgumentException("Cannot create a rational number from " + number);
+        long denominator = 10;
+        number  = number * denominator;
+        while (number - Math.round(number) > 0.000000000001) {
+            denominator *= 10;
+            number *= 10;
         }
-        return new RationalNumber(1, (long) (1 / number));
+        return new RationalNumber(Math.round(number), denominator).simplify();
     }
 
     @Override
