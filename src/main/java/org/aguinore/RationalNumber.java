@@ -6,6 +6,7 @@ public class RationalNumber {
     private final long numerator;
     private final long denominator;
 
+    //TODO what to do with 0 in denominator?
     public RationalNumber(long numerator, long denominator) {
         this.numerator = numerator;
         this.denominator = denominator;
@@ -17,12 +18,24 @@ public class RationalNumber {
         return new RationalNumber(newNumerator, newDenominator).simplify();
     }
 
+    public RationalNumber subtract(RationalNumber number) {
+        return add(number.multiply(-1));
+    }
+
     public RationalNumber multiply(RationalNumber number) {
         return new RationalNumber(numerator * number.numerator, denominator * number.denominator)
                 .simplify();
     }
 
+    public RationalNumber multiply(Integer number) {
+        return new RationalNumber(numerator * number, denominator)
+                .simplify();
+    }
+
     public RationalNumber simplify() {
+        if (numerator == 0) {
+            return new RationalNumber(0, 0);
+        }
         long newNumerator = numerator;
         long newDenominator = denominator;
         while (newNumerator % 2 == 0 && newDenominator % 2 == 0) {

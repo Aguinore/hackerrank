@@ -16,12 +16,38 @@ class RationalNumberTest {
     }
 
     @Test
+    void subtract() {
+        RationalNumber n = new RationalNumber(1, 3);
+        RationalNumber m = new RationalNumber(2, 3);
+
+        RationalNumber res = new RationalNumber(1, 3);
+        assertEquals(res, m.subtract(n));
+    }
+
+    @Test
+    void subtractToZero() {
+        RationalNumber n = new RationalNumber(1, 3);
+        RationalNumber m = new RationalNumber(2, 6);
+
+        RationalNumber res = new RationalNumber(0, 0);
+        assertEquals(res, m.subtract(n));
+    }
+
+    @Test
     void multiplyTest() {
         RationalNumber n = new RationalNumber(1, 3);
         RationalNumber m = new RationalNumber(3, 5);
 
         RationalNumber res = new RationalNumber(1, 5);
         assertEquals(res, n.multiply(m));
+    }
+
+    @Test
+    void multiplyByNumberTest() {
+        RationalNumber n = new RationalNumber(1, 3);
+
+        RationalNumber res = RationalNumber.of(1);
+        assertEquals(res, n.multiply(3));
     }
 
     @Test
