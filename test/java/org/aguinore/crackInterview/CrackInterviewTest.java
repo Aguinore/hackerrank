@@ -1,9 +1,8 @@
-package org.aguinore;
+package org.aguinore.crackInterview;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
@@ -86,17 +85,16 @@ class CrackInterviewTest {
         String brackets = "";
         assertTrue(CrackInterview.ifBracketsBalanced(brackets));
     }
+
     @Test
     void ifBracketsBalancedLong() throws FileNotFoundException {
-        Scanner scanner = new Scanner(new FileInputStream(new File("test/resource/brackets")));
-        Scanner anotherScanner = new Scanner(new FileInputStream(new File("test/resource/brackets_res")));
-        int row = 0;
+        Scanner scanner = new Scanner(Thread.currentThread().getContextClassLoader()
+                .getResourceAsStream("crackInterview/brackets"));
+        Scanner anotherScanner = new Scanner(Thread.currentThread().getContextClassLoader()
+                .getResourceAsStream("crackInterview/brackets_res"));
         while (scanner.hasNext()) {
-            System.out.println("row = " + ++row);
             String brackets = scanner.nextLine();
-            System.out.println(brackets);
             String res = anotherScanner.nextLine();
-            System.out.println(res);
             if (res.equals("YES")) {
                 assertTrue(CrackInterview.ifBracketsBalanced(brackets));
             } else {
@@ -115,5 +113,34 @@ class CrackInterviewTest {
     void ifBracketsBalancedMalformed() {
         String brackets = "{[(0]}";
         assertFalse(CrackInterview.ifBracketsBalanced(brackets));
+    }
+
+    @Test
+    void findSubarrayWithSumEasy() {
+        int[] arr = {3, 5, -1, 2, 4, -3, 7};
+        int[] expected = {1, 3};
+        assertArrayEquals(expected, CrackInterview.findSubarrayWithSum(arr, 6));
+    }
+
+    @Test
+    void findSubarrayWithSum() {
+        int[] arr = {3, 5, -1, 2, 4, -3, 7};
+        int[] expected = {2, 3};
+        assertArrayEquals(expected, CrackInterview.findSubarrayWithSum(arr, 1));
+    }
+
+    @Test
+    void findSubarrayWithSum1() {
+        int[] arr = {10, 70, -30, 10};
+        int[] expected = {1, 2};
+        assertArrayEquals(expected, CrackInterview.findSubarrayWithSum(arr, 40));
+    }
+
+    @Test
+    @Disabled
+    void findSubarrayWithSum2() {
+        int[] arr = {-100, 10, 30, -100};
+        int[] expected = {1, 2};
+        assertArrayEquals(expected, CrackInterview.findSubarrayWithSum(arr, 40));
     }
 }

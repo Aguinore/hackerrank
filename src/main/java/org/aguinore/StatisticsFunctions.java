@@ -93,4 +93,47 @@ public class StatisticsFunctions {
         }
         return Math.sqrt(sumSquaredDistance / arr.length);
     }
+
+    /**
+     *
+     * @param n total number of elements
+     * @param x count of elements we want to take
+     * @return number of combinations from n by x elements
+     */
+    public static long combinations(int n, int x) {
+        if (n < 0 || x < 0 || x > n) {
+            throw new IllegalArgumentException("Numbers in combinatorial function must be positive" +
+                    " and we can't take more than we have");
+        }
+        return factorial(n) / (factorial(x) * factorial(n - x));
+    }
+
+    public static long factorial(int num) {
+        if (num < 0) {
+            throw new IllegalArgumentException("There is no factorial for negative number");
+        }
+        if (num < 2) {
+            return 1;
+        }
+        return num * factorial(num - 1);
+    }
+
+    public static double binomial(int trials, int successes, double p) {
+        if (p < 0 || p > 1) {
+            throw new IllegalArgumentException("Probability must be in [0; 1]");
+        }
+        if (trials < 0 || successes < 0 || successes > trials) {
+            throw new IllegalArgumentException("Number of trials must be positive," +
+                    " number of successes must be positive and we can't take more successes than trials");
+        }
+        return combinations(trials, successes) * Math.pow(p, successes) * Math.pow(1 - p, trials - successes);
+    }
+
+    /**
+     * counts the probability of the first success seeing at nth trial
+     * if the probability of success = p
+     */
+    public static double geometricDistribution(int n, double p) {
+        return Math.pow((1 - p), (n - 1)) * p;
+    }
 }

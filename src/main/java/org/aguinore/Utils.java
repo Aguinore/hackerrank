@@ -90,4 +90,71 @@ public class Utils {
         }
         return minKeyWithMaxCount;
     }
+
+    public static int[] bubbleSort(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i; j < arr.length; j++) {
+                if (arr[i] > arr[j]) {
+                    int temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+        return arr;
+    }
+
+    public static boolean isPrimal(int n) {
+        if (n <= 0) {
+            throw new IllegalArgumentException("Cannot check if negative n is primal");
+        }
+        if (n == 1) {
+            return false;
+        }
+        if (n < 4) {
+            return true;
+        }
+        for (int i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static long fibonacci(int num) {
+        if (num < 0) {
+            throw new IllegalArgumentException("Cannot return negative Fibonacci number");
+        }
+        if (num < 2) {
+            return num;
+        }
+        return fibonacci(num - 1) + fibonacci(num - 2);
+    }
+
+    public static List<Integer> getAllMultiples(int[] nums, int maxMultiple) {
+        List<Integer> multiples = new ArrayList<>();
+        for (int i = 1; i <= maxMultiple; i++) {
+            boolean isDiv = true;
+            for (int num : nums) {
+                if (i % num != 0) {
+                    isDiv = false;
+                    break;
+                }
+            }
+            if (isDiv) {
+                multiples.add(i);
+            }
+        }
+        return multiples;
+    }
+
+    public static String binaryInt(int n) {
+        StringBuilder res = new StringBuilder();
+        while (n > 0) {
+            res.append(n % 2);
+            n /= 2;
+        }
+        return res.reverse().toString();
+    }
 }
