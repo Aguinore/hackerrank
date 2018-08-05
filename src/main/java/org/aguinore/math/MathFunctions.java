@@ -65,4 +65,14 @@ public class MathFunctions {
         }
         return res.reverse().toString();
     }
+
+    public static int minimum(int... nums) {
+        int result = Integer.MAX_VALUE;
+        for(int num: nums) {
+            if (num < result) {
+                result = num;
+            }
+        }
+        return result;
+    }
 }

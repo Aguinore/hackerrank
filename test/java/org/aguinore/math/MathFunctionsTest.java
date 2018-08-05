@@ -37,4 +37,12 @@ class MathFunctionsTest {
         assertEquals("11111", MathFunctions.binaryInt(31));
         assertEquals("1", MathFunctions.binaryInt(1));
     }
+
+    @Test
+    void minimum() {
+        int[] arr = {4, 17, 7, 14, 18, 12, 3, 16, 10, 4, 4, 12};
+        assertEquals(3, MathFunctions.minimum(arr));
+        int[] arr1 = {4, 17, -7, 14, 18, -12, 3, 16, 10, -4, 4, 12};
+        assertEquals(-12, MathFunctions.minimum(arr1));
+    }
 }

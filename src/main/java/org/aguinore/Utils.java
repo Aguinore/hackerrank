@@ -1,5 +1,7 @@
 package org.aguinore;
 
+import org.aguinore.math.MathFunctions;
+
 import java.util.*;
 
 public class Utils {
@@ -102,5 +104,23 @@ public class Utils {
             }
         }
         return arr;
+    }
+
+    public static int levenshteinDistance(String str1, String str2) {
+        int[][] distances = new int[str1.length() + 1][str2.length() + 1];
+        for (int i = 0; i < str1.length() + 1; i++) {
+            distances[i][0] = i;
+        }
+        for (int i = 0; i < str2.length() + 1; i++) {
+            distances[0][i] = i;
+        }
+
+        for (int i = 1; i < str1.length() + 1; i++) {
+            for (int j = 1; j < str2.length() + 1; j++) {
+                int diff = str1.charAt(i - 1) == str2.charAt(j - 1) ? 0: 1;
+                distances[i][j] = MathFunctions.minimum(distances[i - 1][j] + 1, distances[i][j - 1] + 1, distances[i - 1][j - 1] + diff);
+            }
+        }
+        return distances[str1.length()][str2.length()];
     }
 }

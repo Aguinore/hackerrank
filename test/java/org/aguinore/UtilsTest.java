@@ -91,4 +91,12 @@ class UtilsTest {
         int[] expected = {3, 4, 4, 4, 7, 10, 12, 12, 14, 16, 17, 18};
         assertArrayEquals(expected, Utils.bubbleSort(arr));
     }
+
+    @Test
+    void levenshteinDistance() {
+        String str1 = "distance";
+        String str2 = "editing";
+
+        assertEquals(5, Utils.levenshteinDistance(str1, str2));
+    }
 }
