@@ -29,7 +29,7 @@ class UtilsTest {
     void readArrayFromScanner2() {
         createInputStreamWithArrayLength();
         Scanner scanner = new Scanner(System.in);
-        int[] array = {1, 2, 3};
+        int[] array = {3, 1, 2};
         assertArrayEquals(array, Utils.readArrayFromScanner(scanner, 3));
     }
 
