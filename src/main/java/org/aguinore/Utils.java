@@ -115,6 +115,8 @@ public class Utils {
             distances[0][i] = i;
         }
 
+        //TODO reduce space complexity to min(str1.length, str2.length).
+        //Have to store only current and previous columns (rows)  
         for (int i = 1; i < str1.length() + 1; i++) {
             for (int j = 1; j < str2.length() + 1; j++) {
                 int diff = str1.charAt(i - 1) == str2.charAt(j - 1) ? 0: 1;
