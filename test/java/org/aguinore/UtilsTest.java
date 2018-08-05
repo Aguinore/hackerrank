@@ -99,4 +99,24 @@ class UtilsTest {
 
         assertEquals(5, Utils.levenshteinDistance(str1, str2));
     }
+
+    @Test
+    void knapsackWithRepetitions() {
+        int maxWeight = 10;
+        int[] weights = {6, 3, 4, 2};
+        int[] values = {30, 14, 16, 9};
+
+        int[]  expected = {0, 0, 9, 14, 18, 23, 30, 32, 39, 44, 48};
+
+        assertArrayEquals(expected, Utils.knapsackWithRepetitions(maxWeight, weights, values));
+    }
+
+    @Test
+    void knapsackWithoutRepetitions() {
+        int maxWeight = 10;
+        int[] weights = {6, 3, 4, 2};
+        int[] values = {30, 14, 16, 9};
+
+        assertEquals(46, Utils.knapsackWithoutRepetitions(maxWeight, weights, values));
+    }
 }

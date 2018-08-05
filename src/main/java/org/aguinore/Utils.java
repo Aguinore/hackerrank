@@ -125,4 +125,37 @@ public class Utils {
         }
         return distances[str1.length()][str2.length()];
     }
+
+    public static int[] knapsackWithRepetitions(int maxWeight, int[] weights, int[] values) {
+        int[] result = new int[maxWeight + 1];
+
+        for (int u = 1; u < maxWeight + 1; u++) {
+            for (int i = 0; i < weights.length; i++) {
+                if (weights[i] <= u) {
+                    result[u] = Math.max(result[u], result[u - weights[i]] + values[i]);
+                }
+            }
+        }
+
+        return result;
+    }
+
+    public static int knapsackWithoutRepetitions(int maxWeight, int[] weights, int[] values) {
+        int[][] result = new int[maxWeight + 1][weights.length + 1];
+
+        for (int u = 0; u < maxWeight + 1; u++) {
+            result[u][0] = 0;
+        }
+
+        for (int i = 1; i < weights.length + 1; i++) {
+            for (int u = 0; u < maxWeight + 1; u++) {
+                result[u][i] = result[u][i - 1];
+                if (weights[i - 1] <= u) {
+                    result[u][i] = Math.max(result[u][i], result[u - weights[i - 1]][i - 1] + values[i - 1]);
+                }
+            }
+        }
+
+        return result[maxWeight][weights.length];
+    }
 }
