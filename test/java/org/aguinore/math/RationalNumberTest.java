@@ -1,5 +1,6 @@
-package org.aguinore;
+package org.aguinore.math;
 
+import org.aguinore.math.RationalNumber;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

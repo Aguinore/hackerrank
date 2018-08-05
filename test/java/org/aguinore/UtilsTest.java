@@ -27,12 +27,16 @@ class UtilsTest {
 
     @Test
     void readArrayFromScanner2() {
-        String input = "1 2 3";
-        InputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
+        createInputStreamWithArrayLength();
         Scanner scanner = new Scanner(System.in);
         int[] array = {1, 2, 3};
         assertArrayEquals(array, Utils.readArrayFromScanner(scanner, 3));
+    }
+
+    private void createInputStreamWithArrayLength() {
+        String input = "3 1 2 3";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
     }
 
     @Test
@@ -69,12 +73,6 @@ class UtilsTest {
         assertEquals(Integer.valueOf(1), Utils.minKeyWithMaxCount(map));
     }
 
-    private void createInputStreamWithArrayLength() {
-        String input = "3 1 2 3";
-        InputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
-    }
-
     @Test
     void findCharInArray() {
         char[] array = {'a', 'b', '3'};
@@ -92,37 +90,5 @@ class UtilsTest {
         int[] arr = {4, 17, 7, 14, 18, 12, 3, 16, 10, 4, 4, 12};
         int[] expected = {3, 4, 4, 4, 7, 10, 12, 12, 14, 16, 17, 18};
         assertArrayEquals(expected, Utils.bubbleSort(arr));
-    }
-
-    @Test
-    void primality() {
-        for (int i = 1; i <= 29; i++) {
-            assertFalse(Utils.isPrimal(i * i));
-        }
-        assertTrue(Utils.isPrimal(907));
-        assertFalse(Utils.isPrimal(14582734));
-    }
-
-    @Test
-    void fibonacci() {
-        assertEquals(2, Utils.fibonacci(3));
-        assertEquals(8, Utils.fibonacci(6));
-        assertEquals(12586269025L, Utils.fibonacci(50));
-    }
-
-    @Test
-    void getAllMultiples() {
-        int[] arr = {2, 4};
-        Integer[] expected = {4, 8, 12, 16};
-        Integer[] actual = new Integer[4];
-        Utils.getAllMultiples(arr, 16).toArray(actual);
-        assertArrayEquals(expected, actual);
-    }
-
-    @Test
-    void binaryInt() {
-        assertEquals("1101", Utils.binaryInt(13));
-        assertEquals("11111", Utils.binaryInt(31));
-        assertEquals("1", Utils.binaryInt(1));
     }
 }

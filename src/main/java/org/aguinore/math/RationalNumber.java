@@ -1,4 +1,4 @@
-package org.aguinore;
+package org.aguinore.math;
 
 import java.util.Objects;
 
