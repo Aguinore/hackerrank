@@ -45,4 +45,12 @@ class MathFunctionsTest {
         int[] arr1 = {4, 17, -7, 14, 18, -12, 3, 16, 10, -4, 4, 12};
         assertEquals(-12, MathFunctions.minimum(arr1));
     }
+
+    @Test
+    void maximum() {
+        int[] arr = {4, 17, 7, 14, 18, 12, 3, 16, 10, 4, 4, 12};
+        assertEquals(18, MathFunctions.maximum(arr));
+        int[] arr1 = {4, 17, -7, 14, -18, -12, 3, 16, 10, -4, 4, 12};
+        assertEquals(17, MathFunctions.maximum(arr1));
+    }
 }

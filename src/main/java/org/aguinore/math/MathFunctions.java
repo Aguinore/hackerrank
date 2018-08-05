@@ -75,4 +75,14 @@ public class MathFunctions {
         }
         return result;
     }
+
+    public static int maximum(int... nums) {
+        int result = Integer.MIN_VALUE;
+        for(int num: nums) {
+            if (num > result) {
+                result = num;
+            }
+        }
+        return result;
+    }
 }
