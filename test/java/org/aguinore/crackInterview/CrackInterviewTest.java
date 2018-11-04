@@ -3,7 +3,6 @@ package org.aguinore.crackInterview;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -163,5 +162,19 @@ class CrackInterviewTest {
         int[] arr = {2, 5, 1, 3, 4};
         int result = -1;
         assertEquals(result, CrackInterview.minimumBribes(arr));
+    }
+
+    @Test
+    void numberOfPairs() {
+        int[] arr = {10, 20, 20, 10, 10, 30, 50, 10, 20};
+        int result = 3;
+        assertEquals(result, CrackInterview.numberOfPairs(arr));
+    }
+
+    @Test
+    void numberOfPairs2() {
+        int[] arr = {1, 2, 1, 2, 1, 3, 2};
+        int result = 2;
+        assertEquals(result, CrackInterview.numberOfPairs(arr));
     }
 }

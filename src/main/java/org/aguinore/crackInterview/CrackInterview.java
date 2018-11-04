@@ -181,4 +181,21 @@ public class CrackInterview {
         }
         return bribes;
     }
+
+    /**
+     * Sock Merchant
+     */
+    public static int numberOfPairs(int[] ar) {
+        List<Integer> stack = new ArrayList<>();
+        int pairs = 0;
+        for (int i: ar) {
+            if (stack.lastIndexOf(i) == -1) {
+                stack.add(i);
+            } else {
+                stack.remove(stack.lastIndexOf(i));
+                pairs++;
+            }
+        }
+        return pairs;
+    }
 }
