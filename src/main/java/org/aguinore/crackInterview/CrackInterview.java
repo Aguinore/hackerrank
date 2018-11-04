@@ -163,4 +163,22 @@ public class CrackInterview {
         }
         return res;
     }
+
+    /**
+     * New Year Chaos
+     */
+    public static int minimumBribes(int[] q) {
+        int bribes = 0;
+        for (int i = q.length - 1; i >= 0; i--) {
+            if (q[i] - (i + 1) > 2) {
+                return -1;
+            }
+            for (int j = Math.max(0, q[i] - 2); j < i; j++) {
+                if (q[j] > q[i]) {
+                    bribes++;
+                }
+            }
+        }
+        return bribes;
+    }
 }

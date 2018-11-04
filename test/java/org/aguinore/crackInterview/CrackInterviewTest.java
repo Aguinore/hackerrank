@@ -143,4 +143,25 @@ class CrackInterviewTest {
         int[] expected = {1, 2};
         assertArrayEquals(expected, CrackInterview.findSubarrayWithSum(arr, 40));
     }
+
+    @Test
+    void minimumBribes() {
+        int[] arr = {2, 1, 5, 3, 4};
+        int result = 3;
+        assertEquals(result, CrackInterview.minimumBribes(arr));
+    }
+
+    @Test
+    void minimumBribes2() {
+        int[] arr = {1, 2, 5, 3, 7, 8, 6, 4};
+        int result = 7;
+        assertEquals(result, CrackInterview.minimumBribes(arr));
+    }
+
+    @Test
+    void minimumBribesChaotic() {
+        int[] arr = {2, 5, 1, 3, 4};
+        int result = -1;
+        assertEquals(result, CrackInterview.minimumBribes(arr));
+    }
 }
