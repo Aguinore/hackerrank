@@ -2,10 +2,7 @@ package org.aguinore.crackInterview;
 
 import org.aguinore.Utils;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class CrackInterview {
     public static int[] rotLeftBruteforce(int[] a, int d) {
@@ -186,13 +183,12 @@ public class CrackInterview {
      * Sock Merchant
      */
     public static int numberOfPairs(int[] ar) {
-        List<Integer> stack = new ArrayList<>();
+        Set<Integer> stack = new HashSet<>();
         int pairs = 0;
         for (int i: ar) {
-            if (stack.lastIndexOf(i) == -1) {
+            if (!stack.remove(i)) {
                 stack.add(i);
             } else {
-                stack.remove(stack.lastIndexOf(i));
                 pairs++;
             }
         }
