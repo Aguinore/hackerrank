@@ -19,4 +19,18 @@ class CrackInterviewKotlinTest {
         val result = 2
         assertEquals(result, CrackInterviewKotlin.numberOfPairs(arr))
     }
+
+    @Test
+    fun minimumDistanceBetweenPairs() {
+        val arr = intArrayOf(7, 1, 3, 4, 1, 7)
+        val result = 3
+        assertEquals(result, CrackInterviewKotlin.minimumDistances(arr))
+    }
+
+    @Test
+    fun minimumDistanceBetweenPairs2() {
+        val arr = intArrayOf(1, 2, 3, 4, 10)
+        val result = -1
+        assertEquals(result, CrackInterviewKotlin.minimumDistances(arr))
+    }
 }
