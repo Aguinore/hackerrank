@@ -177,4 +177,18 @@ class CrackInterviewTest {
         int result = 2;
         assertEquals(result, CrackInterview.numberOfPairs(arr));
     }
+
+    @Test
+    void minimumDistanceBetweenPairs() {
+        int[] arr = {7, 1, 3, 4, 1, 7};
+        int result = 3;
+        assertEquals(result, CrackInterview.minimumDistanceBetweenPairs(arr));
+    }
+
+    @Test
+    void minimumDistanceBetweenPairs2() {
+        int[] arr = {1, 2, 3, 4, 10};
+        int result = -1;
+        assertEquals(result, CrackInterview.minimumDistanceBetweenPairs(arr));
+    }
 }

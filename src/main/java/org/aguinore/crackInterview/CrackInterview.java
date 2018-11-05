@@ -194,4 +194,26 @@ public class CrackInterview {
         }
         return pairs;
     }
+
+    /**
+     * Minimum Distances
+     */
+    public static int minimumDistanceBetweenPairs(int[] ar) {
+        Map<Integer, Integer> positions = new HashMap<>();
+        int minimumDistance = Integer.MAX_VALUE;
+        for (int i = 0; i < ar.length; i++) {
+            if (positions.containsKey(ar[i])) {
+                int distance = i - positions.get(ar[i]);
+                if (distance < minimumDistance) {
+                    minimumDistance = distance;
+                }
+            }
+            positions.put(ar[i], i);
+
+        }
+        if (minimumDistance == Integer.MAX_VALUE) {
+            return -1;
+        }
+        return minimumDistance;
+    }
 }
